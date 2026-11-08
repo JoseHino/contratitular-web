@@ -8,10 +8,13 @@
 <meta property="og:title" content="Vídeos de curiosidades que se hacen solos">
 <meta property="og:description" content="Ilustraciones animadas, voz, subtítulos y datos comprobados. 0 € por vídeo, solo con tu plan de Claude.">
 <meta property="og:image" content="media/escena-1_5.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="fuentes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Montserrat alojada en la propia web (no se envía la IP de los visitantes a Google) */
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500 900; font-display: swap; src: url(fuentes/montserrat-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500 900; font-display: swap; src: url(fuentes/montserrat-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
   :root {
     --tinta: #0F1B33;
     --tinta-2: #3B4A66;
@@ -323,7 +326,7 @@
           <small>Lanzamiento</small>
           <div class="importe">29 €</div>
           <div class="unico">Pago único · Sin suscripción</div>
-          <a class="boton principal" href="https://ig.me/m/contratitular_es" target="_blank" rel="noopener">Reservar por Instagram</a>
+          <a class="boton principal" href="https://ig.me/m/contratitular_es" target="_blank" rel="noopener" data-goatcounter-click="reservar-instagram" data-goatcounter-title="Botón Reservar por Instagram">Reservar por Instagram</a>
           <p class="letra">El coste del plan de Claude no está incluido. No garantizamos visualizaciones ni ingresos.</p>
         </div>
       </div>
@@ -348,7 +351,7 @@
 
 <footer>
   <div class="envoltura">
-    <span>© 2026 Contratitular</span>
+    <span>© 2026 Contratitular · Esta web no usa cookies ni guarda datos personales.</span>
     <div class="redes">
       <a href="https://www.instagram.com/contratitular_es/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@contratitular" target="_blank" rel="noopener">TikTok</a>
@@ -369,6 +372,10 @@
     ondas.setAttribute('d', v.muted ? 'M23 9l-6 6M17 9l6 6' : 'M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14');
     b.setAttribute('aria-label', v.muted ? 'Activar sonido' : 'Silenciar');
   });
+  // Clic en «activar sonido» del vídeo de muestra
+  b.addEventListener('click', () => { if (!v.muted && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'sonido-video', title: 'Activa el sonido del vídeo', event: true }); });
 </script>
+<!-- Estadísticas de visitas (GoatCounter: sin cookies, no necesita aviso) · panel: https://contratitular.goatcounter.com -->
+<script data-goatcounter="https://contratitular.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
