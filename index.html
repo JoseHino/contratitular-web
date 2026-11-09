@@ -8,6 +8,8 @@
 <meta property="og:title" content="Vídeos de curiosidades que se hacen solos">
 <meta property="og:description" content="Ilustraciones animadas, voz, subtítulos y datos comprobados. 0 € por vídeo, solo con tu plan de Claude.">
 <meta property="og:image" content="media/escena-1_5.jpg">
+<link rel="alternate" hreflang="es" href="https://contratitular.es/">
+<link rel="alternate" hreflang="en" href="https://contratitular.es/en/">
 <link rel="preload" href="fuentes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* Montserrat alojada en la propia web (no se envía la IP de los visitantes a Google) */
@@ -45,6 +47,9 @@
   .barra nav { display: flex; gap: 26px; align-items: center; font-size: 14px; font-weight: 600; color: var(--tinta-2); }
   .barra nav a { text-decoration: none; }
   .barra nav a:hover { color: var(--azul); }
+  .idioma { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--borde); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 800; background: var(--blanco); color: var(--tinta); }
+  .idioma svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .idioma:hover { border-color: var(--azul); }
 
   .boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 800; font-size: 16px; text-decoration: none; border: 0; cursor: pointer; border-radius: 12px; padding: 16px 26px; transition: transform .15s, background .15s, box-shadow .15s; }
   .boton.principal { background: var(--azul); color: #fff; box-shadow: 0 10px 24px rgba(37,99,235,.28); }
@@ -154,7 +159,8 @@
     .cifras .envoltura { grid-template-columns: 1fr 1fr; }
     .cifra:nth-child(3) { border-left: 0; }
     .cifra { border-top: 1px solid rgba(255,255,255,.1); }
-    .barra nav a:not(.boton) { display: none; }
+    .barra nav a:not(.boton):not(.idioma) { display: none; }
+    .barra nav { gap: 10px; }
     .precio { padding: 32px 24px; }
     section { padding: 64px 0; }
     .fila { grid-template-columns: 1fr 1fr 1fr; }
@@ -182,6 +188,7 @@
       <a href="#como">Cómo funciona</a>
       <a href="#requisitos">Qué necesitas</a>
       <a href="#preguntas">Preguntas</a>
+      <a class="idioma" href="en/" hreflang="en" lang="en" title="Read in English" data-goatcounter-click="idioma-en"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>EN</a>
       <a class="boton principal chico" href="#precio">La quiero</a>
     </nav>
   </div>
