@@ -3,386 +3,128 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contratitular · Vídeos de curiosidades gratis con Claude</title>
-<meta name="description" content="La skill para crear Reels, Shorts y TikToks de curiosidades con ilustraciones animadas, voz y subtítulos. Sin pagar por vídeo: solo con tu plan de Claude.">
-<meta property="og:title" content="Vídeos de curiosidades que se hacen solos">
-<meta property="og:description" content="Ilustraciones animadas, voz, subtítulos y datos comprobados. 0 € por vídeo, solo con tu plan de Claude.">
-<meta property="og:image" content="media/escena-1_5.jpg">
+<title>Contratitular · Skill de Claude Code para vídeos verticales explicativos</title>
+<meta name="description" content="Una skill para Claude Code que investiga un tema, lo convierte en historia, ilustra y anima cada escena, pone voz y entrega un MP4 vertical. En tu ordenador y con tu plan de Claude.">
+<meta property="og:title" content="Contratitular · Skill de Claude Code para vídeos verticales explicativos">
+<meta property="og:description" content="Una skill para Claude Code que investiga un tema, lo convierte en historia, ilustra y anima cada escena, pone voz y entrega un MP4 vertical. En tu ordenador y con tu plan de Claude.">
+<meta property="og:image" content="https://contratitular.es/media/clips/endurance.jpg">
 <link rel="alternate" hreflang="es" href="https://contratitular.es/">
 <link rel="alternate" hreflang="en" href="https://contratitular.es/en/">
-<link rel="preload" href="fuentes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-  /* Montserrat alojada en la propia web (no se envía la IP de los visitantes a Google) */
-  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500 900; font-display: swap; src: url(fuentes/montserrat-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500 900; font-display: swap; src: url(fuentes/montserrat-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-  :root {
-    --tinta: #0F1B33;
-    --tinta-2: #3B4A66;
-    --suave: #6B7894;
-    --fondo: #F6F7FB;
-    --blanco: #FFFFFF;
-    --azul: #2563EB;
-    --azul-osc: #1D4ED8;
-    --azul-claro: #E8EFFE;
-    --rojo: #B3261E;
-    --papel: #EFE6D2;
-    --borde: #E3E7F0;
-    --radio: 18px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Montserrat', system-ui, sans-serif; color: var(--tinta); background: var(--fondo); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; }
-  img, video { display: block; max-width: 100%; }
-  .envoltura { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-  svg.ic { width: 22px; height: 22px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-  /* barra */
-  .barra { position: sticky; top: 0; z-index: 10; background: rgba(246,247,251,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--borde); }
-  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .marca { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 19px; letter-spacing: -.3px; text-decoration: none; }
-  .marca i { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; background: var(--tinta); color: #fff; padding: 3px 8px; border-radius: 6px; }
-  .barra nav { display: flex; gap: 26px; align-items: center; font-size: 14px; font-weight: 600; color: var(--tinta-2); }
-  .barra nav a { text-decoration: none; }
-  .barra nav a:hover { color: var(--azul); }
-  .idioma { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--borde); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 800; background: var(--blanco); color: var(--tinta); }
-  .idioma svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
-  .idioma:hover { border-color: var(--azul); }
-
-  .boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 800; font-size: 16px; text-decoration: none; border: 0; cursor: pointer; border-radius: 12px; padding: 16px 26px; transition: transform .15s, background .15s, box-shadow .15s; }
-  .boton.principal { background: var(--azul); color: #fff; box-shadow: 0 10px 24px rgba(37,99,235,.28); }
-  .boton.principal:hover { background: var(--azul-osc); transform: translateY(-1px); }
-  .boton.secundario { background: var(--blanco); color: var(--tinta); border: 1px solid var(--borde); }
-  .boton.secundario:hover { border-color: var(--tinta-2); }
-  .boton.chico { padding: 10px 16px; font-size: 14px; border-radius: 10px; box-shadow: none; }
-
-  /* portada */
-  .portada { padding: 72px 0 56px; }
-  .portada .envoltura { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
-  .etiqueta { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--azul); background: var(--azul-claro); padding: 6px 12px; border-radius: 999px; margin-bottom: 22px; }
-  .etiqueta b { width: 8px; height: 8px; border-radius: 50%; background: var(--azul); }
-  h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.05; font-weight: 900; letter-spacing: -1.6px; }
-  h1 em { font-style: normal; color: var(--azul); }
-  .entradilla { font-size: 19px; color: var(--tinta-2); margin: 22px 0 30px; max-width: 560px; }
-  .acciones { display: flex; gap: 12px; flex-wrap: wrap; }
-  .nota { margin-top: 16px; font-size: 13px; color: var(--suave); }
-
-  .movil { position: relative; width: 320px; margin: 0 auto; background: #0B0F1A; border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px rgba(15,27,51,.25), 0 0 0 1px rgba(15,27,51,.08); }
-  .movil video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 34px; background: var(--papel); }
-  .sonido { position: absolute; bottom: 28px; right: 26px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(15,27,51,.75); color: #fff; display: grid; place-items: center; cursor: pointer; }
-  .sonido svg { width: 20px; height: 20px; }
-
-  /* cifras */
-  .cifras { background: var(--tinta); color: #fff; }
-  .cifras .envoltura { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .cifra { padding: 30px 20px; text-align: center; border-left: 1px solid rgba(255,255,255,.1); }
-  .cifra:first-child { border-left: 0; }
-  .cifra strong { display: block; font-size: 32px; font-weight: 900; letter-spacing: -.5px; }
-  .cifra span { font-size: 14px; color: #B8C3DA; font-weight: 600; }
-
-  section { padding: 88px 0; }
-  .titular { text-align: center; max-width: 720px; margin: 0 auto 52px; }
-  .titular small { font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--azul); }
-  h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; font-weight: 900; letter-spacing: -1px; margin-top: 10px; }
-  .titular p { color: var(--tinta-2); font-size: 17px; margin-top: 14px; }
-
-  /* pasos */
-  .pasos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .paso { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); padding: 26px; }
-  .paso .num { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--azul-claro); color: var(--azul); margin-bottom: 18px; }
-  .paso h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
-  .paso p { font-size: 14.5px; color: var(--tinta-2); }
-
-  /* escenas */
-  .escenas { background: var(--papel); }
-  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .galeria figure { background: #F7F1E3; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 30px rgba(60,40,20,.15); }
-  .galeria img { aspect-ratio: 9/16; object-fit: cover; width: 100%; }
-  .galeria figcaption { font-size: 13px; font-weight: 600; color: #4A3F35; padding: 12px 14px; }
-  .estilos { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 34px; }
-  .estilo { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.7); border-radius: 999px; padding: 8px 14px 8px 8px; font-size: 14px; font-weight: 700; }
-  .estilo b { width: 22px; height: 22px; border-radius: 50%; }
-
-  /* comparación */
-  .tabla { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; max-width: 880px; margin: 0 auto; }
-  .fila { display: grid; grid-template-columns: 1.3fr 1fr 1fr; border-top: 1px solid var(--borde); }
-  .fila:first-child { border-top: 0; background: var(--fondo); font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--suave); }
-  .fila > div { padding: 18px 22px; font-size: 15px; display: flex; align-items: center; gap: 10px; }
-  .fila > div:first-child { font-weight: 700; }
-  .fila .si { color: #15803D; font-weight: 700; }
-  .fila .no { color: var(--suave); }
-  .fila > div:last-child { background: rgba(37,99,235,.04); }
-
-  /* requisitos e incluye */
-  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .caja { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); padding: 32px; }
-  .caja h3 { font-size: 20px; font-weight: 900; margin-bottom: 20px; }
-  .lista { list-style: none; display: grid; gap: 16px; }
-  .lista li { display: flex; gap: 14px; font-size: 15px; color: var(--tinta-2); }
-  .lista li strong { color: var(--tinta); display: block; }
-  .lista .ic { color: var(--azul); margin-top: 2px; }
-
-  /* precio */
-  .precio { background: var(--tinta); color: #fff; border-radius: 28px; padding: 56px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
-  .precio h2 { color: #fff; }
-  .precio p { color: #B8C3DA; margin-top: 14px; font-size: 16px; }
-  .tarifa { background: #fff; color: var(--tinta); border-radius: 22px; padding: 32px; text-align: center; }
-  .tarifa small { font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--rojo); }
-  .tarifa .importe { font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin: 8px 0 2px; }
-  .tarifa .unico { font-size: 14px; color: var(--suave); font-weight: 600; margin-bottom: 22px; }
-  .tarifa .boton { width: 100%; }
-  .tarifa .letra { font-size: 12.5px; color: var(--suave); margin-top: 14px; }
-
-  /* preguntas */
-  .faq { max-width: 800px; margin: 0 auto; display: grid; gap: 12px; }
-  details { background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; padding: 20px 24px; }
-  summary { font-weight: 800; font-size: 16px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: '+'; font-size: 22px; line-height: 1; color: var(--azul); }
-  details[open] summary::after { content: '–'; }
-  details p { margin-top: 12px; color: var(--tinta-2); font-size: 15px; }
-
-  footer { border-top: 1px solid var(--borde); padding: 40px 0 56px; font-size: 14px; color: var(--suave); }
-  footer .envoltura { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
-  .redes { display: flex; gap: 18px; }
-  .redes a { display: flex; align-items: center; gap: 6px; text-decoration: none; font-weight: 700; color: var(--tinta-2); }
-  .redes a:hover { color: var(--azul); }
-
-  .fijo { display: none; }
-
-  @media (max-width: 900px) {
-    .portada .envoltura, .precio, .dos { grid-template-columns: 1fr; }
-    .portada { padding-top: 40px; }
-    .pasos, .galeria { grid-template-columns: 1fr 1fr; }
-    .cifras .envoltura { grid-template-columns: 1fr 1fr; }
-    .cifra:nth-child(3) { border-left: 0; }
-    .cifra { border-top: 1px solid rgba(255,255,255,.1); }
-    .barra nav a:not(.boton):not(.idioma) { display: none; }
-    .barra nav { gap: 10px; }
-    .precio { padding: 32px 24px; }
-    section { padding: 64px 0; }
-    .fila { grid-template-columns: 1fr 1fr 1fr; }
-    .fila > div { padding: 14px 12px; font-size: 13.5px; }
-  }
-  @media (max-width: 560px) {
-    .envoltura { padding: 0 16px; }
-    .pasos { grid-template-columns: 1fr; }
-    .cifra { padding: 22px 10px; }
-    .cifra strong { font-size: 22px; }
-    .cifra span { font-size: 12.5px; }
-    .movil { width: 260px; }
-    .fijo { display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 20; }
-    .fijo .boton { width: 100%; }
-    footer { padding-bottom: 96px; }
-  }
-</style>
+<link rel="preload" href="/fuentes/ibm-plex-sans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fuentes/fuentes.css">
+<link rel="stylesheet" href="/estilos.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1220'/%3E%3Crect x='7' y='8' width='18' height='4' rx='1.5' fill='%23E6E9EF'/%3E%3Crect x='7' y='14' width='11' height='4' rx='1.5' fill='%23E6E9EF'/%3E%3Crect x='7' y='20' width='18' height='4' rx='1.5' fill='%23E6E9EF'/%3E%3Crect x='20' y='14' width='2' height='4' fill='%232E9BF0'/%3E%3Crect x='23' y='12' width='2' height='6' fill='%232E9BF0'/%3E%3C/svg%3E">
 </head>
 <body>
-
 <header class="barra">
-  <div class="envoltura">
-    <a class="marca" href="#">Contratitular <i>Skill</i></a>
-    <nav>
-      <a href="#como">Cómo funciona</a>
-      <a href="#requisitos">Qué necesitas</a>
-      <a href="#preguntas">Preguntas</a>
-      <a class="idioma" href="en/" hreflang="en" lang="en" title="Read in English" data-goatcounter-click="idioma-en"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>EN</a>
-      <a class="boton principal chico" href="#precio">La quiero</a>
+  <div class="caja barra-in">
+    <a class="marca" href="/"><span class="logo" aria-hidden="true"><i></i><i></i><i></i></span>Contratitular</a>
+    <nav aria-label="Secciones">
+      <a href="#proceso">Cómo funciona</a><a href="#ejemplos">Ejemplos</a><a href="#ficha">Ficha técnica</a><a href="#faq">Preguntas</a>
+      <a class="idioma" href="/en/" hreflang="en">EN</a>
+      <a class="btn btn-claro btn-mini" href="#precio">Reservar</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <div class="portada">
-    <div class="envoltura">
-      <div>
-        <span class="etiqueta"><b></b>Skill para Claude · Lanzamiento</span>
-        <h1>Vídeos de curiosidades que se hacen solos. <em>Sin pagar por vídeo.</em></h1>
-        <p class="entradilla">Le pides un tema a Claude (o dejas que lo elija) y en unos minutos tienes un Reel listo: investigación con fuentes, ilustraciones animadas, voz, subtítulos y el texto del post. Solo necesitas tu plan de Claude.</p>
-        <div class="acciones">
-          <a class="boton principal" href="#precio">Quiero la skill · 29 €
-            <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="boton secundario" href="#como">Ver cómo funciona</a>
-        </div>
-        <p class="nota">Pago único. Sin suscripciones. Sin herramientas de pago extra.</p>
-      </div>
-      <div class="movil">
-        <video id="muestra" src="media/muestra-hedy.mp4" poster="media/escena-1_5.jpg" autoplay muted loop playsinline></video>
-        <button class="sonido" id="sonido" aria-label="Activar sonido">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path id="ondas" d="M23 9l-6 6M17 9l6 6"/></svg>
-        </button>
-      </div>
+<section class="portada oscura">
+  <div class="caja portada-in">
+    <div>
+      <p class="ceja">Skill para Claude Code · v2.4</p>
+      <h1>Vídeos verticales explicativos, producidos de principio a fin dentro de Claude Code.</h1>
+      <p class="entrada">Contratitular investiga un tema con fuentes, lo estructura como una historia, ilustra y anima cada escena, la narra y renderiza un MP4 de 1080×1920 listo para Reels, TikTok y Shorts. Funciona en tu ordenador, con tu propio plan de Claude.</p>
+      <div class="acciones"><a class="btn btn-azul" href="#precio">Reservar plaza · 29 € <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-borde" href="#ejemplos">Ver ejemplos</a></div>
+      <p class="letra">Pago único. Sin cuotas por vídeo ni créditos de generación.</p>
+    </div>
+    <figure class="movil">
+      <video id="portada-video" src="/media/clips/endurance.mp4" poster="/media/clips/endurance.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      <button class="sonido" id="portada-sonido" type="button" aria-label="Activar sonido" data-on="Silenciar" data-off="Activar sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path class="ondas" d="M23 9l-6 6M17 9l6 6"/></svg></button>
+    </figure>
+  </div>
+  <div class="caja cifras"><div><strong>0 €</strong><span>por vídeo</span></div><div><strong>1080×1920</strong><span>30 fps · H.264</span></div><div><strong>−14 LUFS</strong><span>volumen de redes</span></div><div><strong>2+ fuentes</strong><span>por cada dato</span></div></div>
+</section>
+
+<section id="proceso" class="seccion">
+  <div class="caja">
+    <p class="ceja">Cómo funciona</p><h2>Seis etapas, una orden.</h2><p class="sub">Le pides un tema en lenguaje normal. Claude sigue el proceso de la skill y usa un motor de render local para todo lo que no debe improvisarse: tiempos, cifras, mapas y sonido.</p>
+    <ol class="etapas"><li><span class="num">01</span><h3>Investigación</h3><p>Búsqueda web y contraste de cada cifra, fecha y nombre en al menos dos fuentes. Lo dudoso se marca como hipótesis o se descarta.</p></li><li><span class="num">02</span><h3>Historia</h3><p>Apuestas, gran pregunta, giro y reenganche. Autoevaluación con diez criterios: si la media baja de 7,5, el guion se reescribe.</p></li><li><span class="num">03</span><h3>Guion y storyboard</h3><p>Narración continua a ~3 palabras por segundo, ajustada a la duración pedida. Cámara, transición y sonido por escena.</p></li><li><span class="num">04</span><h3>Escenas</h3><p>Ilustración vectorial dibujada para cada frase. Gráficos y mapas con datos reales (Banco Mundial, Our World in Data, Natural Earth, IGN).</p></li><li><span class="num">05</span><h3>Voz y sonido</h3><p>Voz neuronal, alineación palabra a palabra y efectos generados por código que suenan cuando se nombra cada elemento.</p></li><li><span class="num">06</span><h3>Render</h3><p>Remotion local: MP4 H.264, volumen normalizado, portada, texto del post con fuentes y storyboard.</p></li></ol>
+  </div>
+</section>
+
+<section id="ejemplos" class="seccion gris">
+  <div class="caja">
+    <p class="ceja">Ejemplos</p><h2>Salidas reales de la skill, sin retocar.</h2><p class="sub">Cada uno se generó con una sola petición. Pulsa un vídeo para verlo completo y con sonido.</p>
+    <div class="clips"><figure class="clip" data-completo="/media/clips/endurance.mp4">
+      <div class="clip-video"><video src="/media/clips/endurance-bucle.mp4" poster="/media/clips/endurance.jpg" muted loop playsinline preload="none"></video><button class="clip-play" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l11-7z"/></svg><span>Ver completo con sonido</span></button></div>
+      <figcaption><span class="mono">Historia · papel · 0:54</span><strong>Los 28 del Endurance</strong><span class="rasgos"><em>mapa con ruta</em><em>contador</em><em>corte en el giro</em></span></figcaption></figure><figure class="clip" data-completo="/media/clips/petricor.mp4">
+      <div class="clip-video"><video src="/media/clips/petricor-bucle.mp4" poster="/media/clips/petricor.jpg" muted loop playsinline preload="none"></video><button class="clip-play" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l11-7z"/></svg><span>Ver completo con sonido</span></button></div>
+      <figcaption><span class="mono">Ciencia · pizarra · 0:40</span><strong>Por qué huele la lluvia</strong><span class="rasgos"><em>narración continua</em><em>efectos sincronizados</em></span></figcaption></figure><figure class="clip" data-completo="/media/clips/huesos.mp4">
+      <div class="clip-video"><video src="/media/clips/huesos-bucle.mp4" poster="/media/clips/huesos.jpg" muted loop playsinline preload="none"></video><button class="clip-play" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l11-7z"/></svg><span>Ver completo con sonido</span></button></div>
+      <figcaption><span class="mono">Cuerpo humano · pop · 0:31</span><strong>Naciste con más huesos</strong><span class="rasgos"><em>hecho por un Claude sin contexto</em><em>instalación limpia</em></span></figcaption></figure><figure class="clip">
+      <div class="clip-video"><video src="/media/clips/datos-bucle.mp4" poster="/media/clips/datos.jpg" muted loop playsinline preload="none"></video><span class="clip-marca">Fragmento</span></div>
+      <figcaption><span class="mono">Datos · neón · fragmento</span><strong>Escenas de datos</strong><span class="rasgos"><em>Banco Mundial</em><em>línea, barras y mapas</em></span></figcaption></figure></div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="caja dos">
+    <div><p class="ceja">Instalación</p><h2>Se instala como un plugin y se usa en lenguaje normal.</h2><p class="sub">Las actualizaciones llegan con /plugin update. La configuración y las claves del usuario viven fuera del plugin, en su propia carpeta.</p></div>
+    <pre class="terminal" aria-label="Terminal"><span class="puntos" aria-hidden="true"><i></i><i></i><i></i></span><code>/plugin marketplace add &lt;dirección de tu compra&gt;
+/plugin install contratitular@contratitular
+
+<b>&gt; Hazme un vídeo de 45 segundos sobre la expedición del Endurance</b>
+
+<span class="ok">  ✓ Historia: apuestas · pregunta · giro · reenganche (evaluación 8,4)</span>
+<span class="ok">  ✓ Guion correcto · 9 escenas · 164 palabras</span>
+<span class="ok">  ✓ Voz · subtítulos · 23/32 elementos sincronizados</span>
+<span class="ok">  ✓ Listo (53,8 s): video.mp4 · portada.png · texto.txt · storyboard.md</span></code></pre>
+  </div>
+</section>
+
+<section class="seccion oscura">
+  <div class="caja dos">
+    <div><p class="ceja">Medido, no supuesto</p><h2>Cada versión incorpora lo que dicen los datos.</h2><p class="sub">Publicamos a diario con la propia skill y medimos la retención de cada vídeo en cada red. Lo que se aprende entra en la siguiente versión como reglas de guion, sonido y estilo.</p><p class="nota-dato">−31 puntos en el primer segundo: el algoritmo lo mostraba, pero el gancho tardaba demasiado. Desde la v2.3, la primera frase pone lo importante en sus primeras palabras.</p></div>
+    <figure class="panel-grafica"><svg class="grafica" viewBox="0 0 520 240" role="img" aria-label="Retención segundo a segundo · TikTok · primer vídeo publicado (noviembre de 2026)"><g class="rejilla"><line x1="44" x2="504" y1="206" y2="206"/><text x="36" y="210" text-anchor="end">0%</text><line x1="44" x2="504" y1="158.5" y2="158.5"/><text x="36" y="162.5" text-anchor="end">25%</text><line x1="44" x2="504" y1="111" y2="111"/><text x="36" y="115" text-anchor="end">50%</text><line x1="44" x2="504" y1="63.5" y2="63.5"/><text x="36" y="67.5" text-anchor="end">75%</text><line x1="44" x2="504" y1="16" y2="16"/><text x="36" y="20" text-anchor="end">100%</text></g><g class="eje"><text x="44" y="230" text-anchor="middle">0 s</text><text x="136" y="230" text-anchor="middle">2 s</text><text x="228" y="230" text-anchor="middle">4 s</text><text x="320" y="230" text-anchor="middle">6 s</text><text x="412" y="230" text-anchor="middle">8 s</text><text x="504" y="230" text-anchor="middle">10 s</text></g><path d="M44.0 16.0 L90.0 74.9 L136.0 101.5 L182.0 122.4 L228.0 137.6 L274.0 160.4 L320.0 173.7 L366.0 181.3 L412.0 187.0 L458.0 188.9 L504.0 190.8 L504 206 L44 206 Z" class="area"/><path d="M44.0 16.0 L90.0 74.9 L136.0 101.5 L182.0 122.4 L228.0 137.6 L274.0 160.4 L320.0 173.7 L366.0 181.3 L412.0 187.0 L458.0 188.9 L504.0 190.8" class="linea"/><circle cx="90" cy="74.9" r="5" class="punto"/><text x="102" y="66.9" class="anota">−31</text></svg><figcaption>Retención segundo a segundo · TikTok · primer vídeo publicado (noviembre de 2026)</figcaption></figure>
+  </div>
+</section>
+
+<section id="ficha" class="seccion">
+  <div class="caja">
+    <p class="ceja">Ficha técnica</p><h2>Especificaciones.</h2>
+    <dl class="ficha"><div><dt>Formato</dt><dd>1080×1920, 30 fps, MP4 H.264 + AAC, volumen −14 LUFS</dd></div><div><dt>Duración</dt><dd>15 a 90 s, según se pida (por defecto ~40 s)</dd></div><div><dt>Estilos</dt><dd>Papel, neón, pop, pizarra y limpio</dd></div><div><dt>Escenas de datos</dt><dd>Barras, línea, contador y mapas (mundo, Europa, España por provincias o comunidades)</dd></div><div><dt>Voz</dt><dd>Azure Neural HD (nivel gratuito), Kokoro local o tu propia voz con ElevenLabs</dd></div><div><dt>Idioma de la narración</dt><dd>Español</dd></div><div><dt>Entregables</dt><dd>Vídeo, portada, texto del post con fuentes, storyboard y ganchos alternativos</dd></div><div><dt>Requisitos</dt><dd>Plan Pro o Max de Claude, Claude Code (app de escritorio o terminal), Windows 10/11 · macOS en beta</dd></div><div><dt>Coste por vídeo</dt><dd>Ninguno: usa el plan de Claude del usuario; la skill no llama a la API de pago</dd></div></dl>
+  </div>
+</section>
+
+<section id="precio" class="seccion gris">
+  <div class="caja precio">
+    <div><p class="ceja">Lanzamiento</p><h2>Pago único de 29 €.</h2><p class="sub">Estamos cerrando la primera versión pública. Reserva tu plaza por mensaje directo y te avisamos con el precio de lanzamiento garantizado.</p></div>
+    <div class="tarifa">
+      <span class="mono">Pago único</span>
+      <div class="importe">29 €</div>
+      <a class="btn btn-azul" href="https://ig.me/m/contratitular_es" target="_blank" rel="noopener" data-goatcounter-click="reservar-instagram-es" data-goatcounter-title="Reservar por Instagram (es)">Reservar por Instagram</a>
+      <p class="letra">El plan de Claude no está incluido. No garantizamos visualizaciones ni ingresos.</p>
     </div>
   </div>
+</section>
 
-  <div class="cifras">
-    <div class="envoltura">
-      <div class="cifra"><strong>0 €</strong><span>por vídeo</span></div>
-      <div class="cifra"><strong>15-30 min</strong><span>del tema al vídeo</span></div>
-      <div class="cifra"><strong>5 estilos</strong><span>de ilustración</span></div>
-      <div class="cifra"><strong>Con fuentes</strong><span>cada dato comprobado</span></div>
-    </div>
+<section id="faq" class="seccion">
+  <div class="caja estrecha">
+    <p class="ceja">Preguntas</p>
+    <div class="faq"><details><summary>¿Usa la API de Claude?</summary><p>No. Se ejecuta dentro de Claude Code con tu suscripción (Pro o Max). Cada vídeo consume parte del límite de uso de tu plan, no una factura aparte.</p></details><details><summary>¿Cuánto tarda un vídeo?</summary><p>Entre 15 y 30 minutos desde la petición, casi todo investigación y dibujo. El render en sí son 2-3 minutos en un portátil normal.</p></details><details><summary>¿Cuántos vídeos puedo hacer?</summary><p>Con el plan Pro, normalmente 1-2 al día. Con Max, bastantes más.</p></details><details><summary>¿Los datos son fiables?</summary><p>Cada cifra se contrasta en al menos dos fuentes, lo incierto se marca como hipótesis y las fuentes van en el texto del post. Aun así, revisa cada vídeo antes de publicarlo.</p></details><details><summary>¿Se publica solo?</summary><p>No. La skill entrega los archivos; tú decides dónde y cuándo publicarlos.</p></details><details><summary>¿Necesito saber programar?</summary><p>No. El instalador se encarga de las dependencias y luego se pide todo en lenguaje normal.</p></details></div>
   </div>
-
-  <section id="como">
-    <div class="envoltura">
-      <div class="titular">
-        <small>Cómo funciona</small>
-        <h2>Tú eliges el tema. Claude hace el resto.</h2>
-        <p>Todo pasa en tu ordenador, con tu propia cuenta de Claude. Nada se publica sin que tú lo decidas.</p>
-      </div>
-      <div class="pasos">
-        <div class="paso">
-          <div class="num"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
-          <h3>1. Investiga</h3>
-          <p>Busca la curiosidad, la contrasta en varias fuentes fiables y descarta lo que no se puede comprobar.</p>
-        </div>
-        <div class="paso">
-          <div class="num"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="m13.5 6.5 4 4"/></svg></div>
-          <h3>2. Escribe</h3>
-          <p>Un guion de 40-50 segundos con gancho en la primera frase, datos concretos y un giro final.</p>
-        </div>
-        <div class="paso">
-          <div class="num"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></div>
-          <h3>3. Dibuja y anima</h3>
-          <p>Ilustra cada frase con escenas animadas, pone la voz y sincroniza el texto palabra a palabra.</p>
-        </div>
-        <div class="paso">
-          <div class="num"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></div>
-          <h3>4. Te lo entrega</h3>
-          <p>Vídeo vertical 1080×1920 listo para Instagram, TikTok, YouTube Shorts y Facebook, con el texto del post y las fuentes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="escenas">
-    <div class="envoltura">
-      <div class="titular">
-        <small>Hecho con la skill</small>
-        <h2>Cada frase, una ilustración</h2>
-        <p>Escenas del vídeo de muestra sobre Hedy Lamarr: dibujadas y animadas por Claude, sin bancos de imágenes ni vídeo generado de pago.</p>
-      </div>
-      <div class="galeria">
-        <figure><img src="media/escena-1_5.jpg" alt="Escena: una actriz de cine con un móvil" loading="lazy"><figcaption>El gancho</figcaption></figure>
-        <figure><img src="media/escena-14.jpg" alt="Escena: un torpedo guiado por radio" loading="lazy"><figcaption>El contexto</figcaption></figure>
-        <figure><img src="media/escena-21.jpg" alt="Escena: un piano y un rollo de pianola" loading="lazy"><figcaption>El dato curioso</figcaption></figure>
-        <figure><img src="media/escena-29.jpg" alt="Escena: la patente número 2.292.387" loading="lazy"><figcaption>La prueba</figcaption></figure>
-      </div>
-      <div class="estilos">
-        <span class="estilo"><b style="background:#EFE6D2;border:2px solid #2B2622"></b>Papel</span>
-        <span class="estilo"><b style="background:#0B1026;border:2px solid #3DF5FF"></b>Neón</span>
-        <span class="estilo"><b style="background:repeating-linear-gradient(135deg,#FFD23F 0 5px,#FF4F9A 5px 10px)"></b>Pop</span>
-        <span class="estilo"><b style="background:#23352B;border:2px dashed #F3F1E7"></b>Pizarra</span>
-        <span class="estilo"><b style="background:#F4F6FB;border:2px solid #3A86FF"></b>Limpio</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="envoltura">
-      <div class="titular">
-        <small>La diferencia</small>
-        <h2>Lo que no pagas en cada vídeo</h2>
-      </div>
-      <div class="tabla">
-        <div class="fila"><div></div><div>Lo habitual</div><div>Contratitular</div></div>
-        <div class="fila"><div>Voz</div><div class="no">Suscripción de voz IA</div><div class="si">Gratis</div></div>
-        <div class="fila"><div>Imágenes y vídeo</div><div class="no">Créditos de IA por clip</div><div class="si">Dibujadas por Claude</div></div>
-        <div class="fila"><div>Comprobación de datos</div><div class="no">Por tu cuenta</div><div class="si">Con fuentes citadas</div></div>
-        <div class="fila"><div>Elegir el tema</div><div class="no">Tienes que pensarlo tú</div><div class="si">Lo propone solo</div></div>
-        <div class="fila"><div>Coste por vídeo</div><div class="no">Suscripciones y créditos</div><div class="si">0 €</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="requisitos" style="padding-top:0">
-    <div class="envoltura dos">
-      <div class="caja">
-        <h3>Qué necesitas</h3>
-        <ul class="lista">
-          <li><svg class="ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div><strong>Un ordenador Windows o Mac</strong>Con internet y unos 3 GB libres.</div></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><div><strong>Plan de pago de Claude</strong>Desde 20 $/mes (Pro). Es lo único de pago, y seguramente ya lo tienes.</div></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg><div><strong>Cuenta gratuita de voz de Microsoft Azure</strong>Su nivel gratuito da para cientos de vídeos al mes. La guía explica cómo crearla en 5 minutos.</div></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><div><strong>No hace falta saber programar</strong>Claude instala lo que falte siguiendo la guía.</div></li>
-        </ul>
-      </div>
-      <div class="caja">
-        <h3>Qué incluye</h3>
-        <ul class="lista">
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><div><strong>La skill completa</strong>Instrucciones y herramientas que Claude sigue paso a paso.</div></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg><div><strong>Plantilla de vídeo con 5 estilos</strong>Papel, neón, pop, pizarra y limpio, con tarjetas de texto animadas.</div></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><div><strong>Comprobación de datos</strong>Un segundo repaso con búsqueda web antes de dibujar nada.</div></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg><div><strong>Guía paso a paso y actualizaciones</strong>Para instalarlo sin saber nada técnico, y las mejoras que vayan saliendo.</div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="precio" style="padding-top:0">
-    <div class="envoltura">
-      <div class="precio">
-        <div>
-          <h2>Precio de lanzamiento</h2>
-          <p>Estamos dando los últimos retoques. Escríbenos «SKILL» por mensaje directo en Instagram y te avisamos en cuanto salga, con el precio de lanzamiento garantizado.</p>
-          <p>Mientras tanto, mira cómo funciona: en <strong style="color:#fff">@contratitular_es</strong> publicamos vídeos hechos con la skill cada día.</p>
-        </div>
-        <div class="tarifa">
-          <small>Lanzamiento</small>
-          <div class="importe">29 €</div>
-          <div class="unico">Pago único · Sin suscripción</div>
-          <a class="boton principal" href="https://ig.me/m/contratitular_es" target="_blank" rel="noopener" data-goatcounter-click="reservar-instagram" data-goatcounter-title="Botón Reservar por Instagram">Reservar por Instagram</a>
-          <p class="letra">El coste del plan de Claude no está incluido. No garantizamos visualizaciones ni ingresos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="preguntas" style="padding-top:0">
-    <div class="envoltura">
-      <div class="titular"><small>Preguntas</small><h2>Lo que nos suelen preguntar</h2></div>
-      <div class="faq">
-        <details><summary>¿De verdad no pago nada por cada vídeo?</summary><p>No. El guion y los dibujos los hace Claude con tu plan de pago, la voz sale del nivel gratuito de Microsoft Azure y el montaje se hace en tu ordenador. Lo único que pagas es tu suscripción de Claude, que cuenta para su límite de uso.</p></details>
-        <details><summary>¿Cuántos vídeos puedo hacer al día?</summary><p>Con el plan Pro, normalmente 1 o 2 al día. Con un plan Max, bastantes más. Cada vídeo usa unas pocas consultas a Claude.</p></details>
-        <details><summary>¿Necesito saber programar?</summary><p>No. Sigues la guía, Claude instala lo necesario y luego solo le pides vídeos en lenguaje normal.</p></details>
-        <details><summary>¿Los datos son fiables?</summary><p>La skill obliga a Claude a contrastar cada dato en varias fuentes y hace un segundo repaso antes de dibujar. Las fuentes salen en el texto del post. Aun así, te recomendamos echarle un vistazo antes de publicar.</p></details>
-        <details><summary>¿Se publica solo?</summary><p>No: la skill te entrega el vídeo y el texto, y tú decides dónde y cuándo subirlo.</p></details>
-        <details><summary>¿Puedo usarlo para mi marca o negocio?</summary><p>Sí. Puedes cambiar los temas, los colores y el estilo para adaptarlo a tu cuenta.</p></details>
-        <details><summary>¿Me garantizáis visualizaciones?</summary><p>No. Te damos la herramienta para publicar con constancia y calidad; los resultados dependen de cada cuenta.</p></details>
-      </div>
-    </div>
-  </section>
+</section>
 </main>
 
-<footer>
-  <div class="envoltura">
+<footer class="pie">
+  <div class="caja pie-in">
     <span>© 2026 Contratitular · Esta web no usa cookies ni guarda datos personales.</span>
-    <div class="redes">
-      <a href="https://www.instagram.com/contratitular_es/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@contratitular" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.youtube.com/@contratitular" target="_blank" rel="noopener">YouTube</a>
-    </div>
+    <span class="redes"><a href="https://www.instagram.com/contratitular_es/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@contratitular" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@contratitular" target="_blank" rel="noopener">YouTube</a><a href="/en/" hreflang="en">English</a></span>
   </div>
 </footer>
 
-<div class="fijo"><a class="boton principal" href="#precio">Quiero la skill · 29 €</a></div>
-
-<script>
-  const v = document.getElementById('muestra');
-  const b = document.getElementById('sonido');
-  const ondas = document.getElementById('ondas');
-  b.addEventListener('click', () => {
-    v.muted = !v.muted;
-    if (!v.muted) { v.currentTime = 0; v.play(); }
-    ondas.setAttribute('d', v.muted ? 'M23 9l-6 6M17 9l6 6' : 'M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14');
-    b.setAttribute('aria-label', v.muted ? 'Activar sonido' : 'Silenciar');
-  });
-  // Clic en «activar sonido» del vídeo de muestra
-  b.addEventListener('click', () => { if (!v.muted && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'sonido-video', title: 'Activa el sonido del vídeo', event: true }); });
-</script>
-<!-- Estadísticas de visitas (GoatCounter: sin cookies, no necesita aviso) · panel: https://contratitular.goatcounter.com -->
+<script src="/web.js" defer></script>
+<!-- Estadísticas de visitas (GoatCounter: sin cookies) -->
 <script data-goatcounter="https://contratitular.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
