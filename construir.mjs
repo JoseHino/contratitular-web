@@ -52,14 +52,14 @@ const T = {
     title: 'Contratitular · Explica cualquier idea en un vídeo vertical, con Claude',
     desc: 'Para proyectos, clases, empresas, instituciones y creadores. Contratitular investiga, construye la historia, ilustra cada escena, pone la voz y entrega el vídeo vertical terminado. Dentro de Claude, en tu ordenador, sin pagar por vídeo.',
     nav: [['#usos', 'Casos de uso'], ['#como', 'Cómo funciona'], ['#ejemplos', 'Ejemplos'], ['#precio', 'Precio'], ['#faq', 'Preguntas']], navCta: 'Reservar plaza',
-    pill: ['Nuevo · v2.4', 'Historias con giro, voz HD y mapas con datos reales'],
+    pill: ['Nuevo', 'Historias que enganchan, con voz natural'],
     h1: ['Explica cualquier idea', 'en un vídeo de 45 segundos.'],
-    lead: 'Un proyecto, una clase, un producto o una curiosidad. Contratitular investiga, construye la historia, ilustra y anima cada escena, pone la voz y te entrega el vídeo vertical terminado. Dentro de Claude, en tu ordenador y sin pagar por vídeo.',
+    lead: 'Un proyecto, una clase, un producto o una curiosidad. Lo pides con tus palabras y recibes el vídeo terminado: con su historia, sus dibujos animados, voz y subtítulos. Sin rodar, sin editar y sin pagar por cada vídeo.',
     cta1: 'Reservar plaza · 29 €', cta2: 'Ver un ejemplo',
-    confianza: ['Sin cuotas por vídeo', 'Datos con fuentes', 'Listo para Reels, TikTok, Shorts y LinkedIn'],
+    confianza: ['Sin cuotas por vídeo', 'Sin saber de vídeo', 'Para redes, web o clase'],
     sonido: ['Activar sonido', 'Silenciar'],
     prompts: ['Explica mi startup a inversores en 45 segundos, con estos datos', 'Un vídeo sobre la fotosíntesis para 2.º de ESO', 'Cuenta por qué nuestro aceite es de primera presión en frío', 'Resume este protocolo de seguridad en un minuto', 'Explica a los vecinos la nueva recogida de residuos', 'Hazme tres vídeos de historia para esta semana'],
-    promptBtn: 'Crear vídeo', promptEtiqueta: 'Tu petición, en lenguaje normal',
+    promptBtn: 'Crear vídeo', promptEtiqueta: 'Lo pides así, con tus palabras',
     redes: ['Instagram Reels', 'TikTok', 'YouTube Shorts', 'LinkedIn', 'Facebook', 'Tu web o tu aula'], redesTxt: 'Un formato, todas las pantallas',
     tUsos: 'Casos de uso', hUsos: 'Si tienes algo que explicar, tienes un vídeo.',
     pUsos: 'Nació para una cuenta de curiosidades que publica cada día. Hoy sirve a cualquiera que necesite contar algo claro, rápido y con gancho: tú pones el tema o tu material, la skill lo convierte en una historia que se ve hasta el final.',
@@ -85,46 +85,42 @@ const T = {
         ej: 'Hazme tres vídeos de historia para esta semana', aporta: 'Nada, o un tema que te guste', recibe: 'Vídeos, portadas y textos con fuentes' },
     ],
     tComo: 'Cómo funciona', hComo: 'De una frase a un vídeo terminado.',
-    pComo: 'Claude sigue el proceso de la skill y un motor de render local se encarga de lo que no debe improvisarse: tiempos, cifras, mapas y sonido.',
+    pComo: 'Sin rodajes, sin programas de edición y sin conocimientos técnicos.',
     pasos: [
-      { n: '01', h: 'Lo pides', p: 'En lenguaje normal. Con un tema, o con tu material: un texto, tus apuntes, un documento o tus datos.', lista: ['«Explica mi proyecto en 45 s»', 'apuntes.pdf · datos.xlsx'] },
-      { n: '02', h: 'Claude lo produce', p: 'Investiga y contrasta, construye la historia, escribe el guion, dibuja cada escena, pone voz, subtítulos, música y sonido, y revisa cada fotograma.', lista: ['Investigación · historia · guion', 'Escenas · voz · sonido · render'] },
-      { n: '03', h: 'Lo recibes', p: 'Todo en una carpeta, listo para revisar y publicar donde quieras. Nada se publica sin ti.', lista: ['video.mp4 · portada.png', 'texto.txt (con fuentes) · storyboard.md'] },
+      { n: '01', h: 'Lo pides', p: 'Con tus palabras, como se lo pedirías a una persona. Basta con el tema, o le das tus apuntes, un documento o tus datos.' },
+      { n: '02', h: 'Se hace solo', p: 'Busca la información, escribe la historia, dibuja y anima cada escena y le pone voz y subtítulos.' },
+      { n: '03', h: 'Lo publicas', p: 'Recibes el vídeo listo, con su portada y el texto para acompañarlo. Tú decides dónde y cuándo.' },
     ],
     tHistoria: 'Anatomía de un vídeo', hHistoria: 'No hace vídeos de datos. Hace historias.',
-    pHistoria: 'Cada guion se construye en cuatro fases. Este es el storyboard real que generó la skill para el vídeo del Endurance: 9 escenas, 53,8 segundos.',
-    fases: [['Apuestas', 'Quién, qué está en juego y por qué importa ahora.'], ['Gran pregunta', 'La duda que hace que el espectador se quede.'], ['Giro', 'Crees A; aparece un dato; descubres B.'], ['Reenganche', 'Al resolver, se abre otra pregunta.']],
-    faseNombre: { apuestas: 'apuestas', pregunta: 'pregunta', desarrollo: 'desarrollo', giro: 'giro', reenganche: 'reenganche', resolucion: 'resolución' },
+    pHistoria: 'Cada vídeo tiene un gancho, una pregunta, un giro y un final. Así se construyó el del Endurance, escena a escena.',
+    fases: [['El gancho', 'Quién, qué está en juego y por qué importa.'], ['La pregunta', 'La duda que hace que te quedes a ver.'], ['El giro', 'Lo que no te esperabas.'], ['El final', 'La respuesta, y a veces otra pregunta.']],
+    faseNombre: { apuestas: 'gancho', pregunta: 'pregunta', desarrollo: 'historia', giro: 'giro', reenganche: 'otra pregunta', resolucion: 'final' },
     escenas: ['28 hombres atrapados en el hielo de la Antártida, sin barco y sin forma de pedir ayuda:', 'era 1915, el hielo había aplastado su barco, el Endurance, y lo vieron hundirse,', 'así que la pregunta era sencilla: ¿cómo sales vivo de allí?', 'Primero, acampando meses sobre el hielo, hasta que en tres botes llegaron a una isla helada y deshabitada: Elefante.', 'Pero allí nadie los iba a buscar, así que seis de ellos cruzaron más de 1.200 kilómetros de océano en un bote de siete metros,', 'y llegaron a Georgia del Sur… por el lado equivocado, y aún tuvieron que cruzar a pie sus montañas heladas.', 'Y cuando por fin volvieron a por los que esperaban en la isla, no faltaba nadie: los 28 sobrevivieron.', 'Pero el barco se quedó en el fondo del mar, y durante más de un siglo nadie supo dónde estaba,', 'hasta que en 2022 lo encontraron a 3.008 metros de profundidad, tan entero que todavía se lee su nombre.'],
     deslizar: 'Desliza para recorrer las 9 escenas',
     tEjemplos: 'Ejemplos', hEjemplos: 'Salidas reales de la skill, sin retocar.',
     pEjemplos: 'Cada uno salió de una sola petición. Pulsa para verlo completo y con sonido.',
     verCompleto: 'Ver con sonido', soloBucle: 'Fragmento',
-    tFunciones: 'Qué hay dentro', hFunciones: 'Todo lo que hace falta para que un vídeo funcione.',
+    tFunciones: 'Por qué funciona', hFunciones: 'Vídeos que la gente ve hasta el final.',
     funciones: [
-      ['historia', 'Historias con método', 'Apuestas, gran pregunta, giro y reenganche. Si el guion no supera una autoevaluación de diez criterios, se reescribe.', 'ancho'],
-      ['lupa', 'Datos con fuentes', 'Cada cifra, fecha y nombre se contrasta en al menos dos fuentes. Lo dudoso se marca o se descarta.', ''],
-      ['voz', 'Voz HD natural', 'Narración de corrido con voz neuronal HD. Gratis con el nivel gratuito de Azure, o con tu propia voz.', ''],
-      ['sincro', 'Todo sincronizado', 'Cada elemento aparece y suena justo cuando la voz lo nombra. Subtítulos palabra a palabra.', ''],
-      ['mapa', 'Mapas y gráficos exactos', 'Barras, líneas, contadores y mapas del mundo, Europa o España, con datos del Banco Mundial y Our World in Data.', 'ancho'],
-      ['pincel', 'Cinco estilos, tu marca', 'Papel, neón, pop, pizarra y limpio, adaptables a tus colores.', ''],
-      ['tablero', 'Storyboard incluido', 'Escena a escena: tiempo, narración, objetivo, visual, cámara, sonido y texto.', 'ancho'],
-      ['grafica', 'Aprende de tus métricas', 'Lee capturas de tus estadísticas y escribe tu propio libro de estilo para los siguientes vídeos.', 'ancho'],
+      ['historia', 'Historias que enganchan', 'Cada vídeo tiene gancho, pregunta, giro y final. Nada de listas de datos.', 'ancho'],
+      ['lupa', 'Información fiable', 'Cada dato se comprueba en varias fuentes, y te las da citadas.', ''],
+      ['voz', 'Voz natural, gratis', 'Una narración que suena a persona. O con tu propia voz.', ''],
+      ['mapa', 'Mapas y gráficos', 'Tus cifras, convertidas en gráficos y mapas animados.', ''],
+      ['pincel', 'Con tu estilo', 'Cinco estilos visuales, adaptables a tus colores.', ''],
+      ['sincro', 'Todo a su tiempo', 'Cada dibujo aparece justo cuando la voz lo nombra, con su sonido.', 'ancho'],
     ],
     tMedido: 'Medido, no supuesto', hMedido: 'Cada versión incorpora lo que dicen los datos.',
     pMedido: 'Publicamos a diario con la propia skill y medimos la retención de cada vídeo en cada red. Lo aprendido entra en la siguiente versión como reglas de guion, sonido y estilo.',
     medidoPie: 'Retención segundo a segundo · TikTok · primer vídeo publicado (noviembre de 2026)',
     medidoNota: '−31 puntos en el primer segundo: el algoritmo lo mostraba, pero el gancho tardaba demasiado. Desde la v2.3, la primera frase pone lo importante en sus primeras palabras.',
     ejeS: 's',
-    tCompara: 'Comparativa', hCompara: 'Calidad de productora, coste de cero.',
-    compCols: ['Contratitular', 'Agencia o productora', 'Editor de vídeo con IA', 'Hacerlo tú'],
+    tCompara: 'Comparativa', hCompara: 'Calidad de productora, sin su precio.',
+    compCols: ['Contratitular', 'Agencia', 'Editor con IA', 'Hacerlo tú'],
     compFilas: [
       ['Coste por vídeo', ['0 €', 'Presupuesto por pieza', 'Créditos o suscripción', 'Tus horas']],
-      ['Del tema al vídeo', ['15-30 min', 'Días o semanas', 'Horas de edición', 'Horas o días']],
-      ['Guion con estructura narrativa', [1, 1, 0, '·']],
-      ['Datos contrastados con fuentes', [1, '·', 0, '·']],
-      ['Ilustración propia, sin bancos de imágenes', [1, 1, 0, 0]],
-      ['Mapas y gráficos con datos exactos', [1, 1, 0, '·']],
+      ['Tiempo', ['Minutos', 'Días o semanas', 'Horas', 'Horas o días']],
+      ['Una historia que engancha', [1, 1, 0, '·']],
+      ['Información con fuentes', [1, '·', 0, '·']],
     ],
     compNota: '',
     tFicha: 'Ficha técnica', hFicha: 'Especificaciones.',
@@ -140,23 +136,22 @@ const T = {
       ['Requisitos', 'Plan Pro o Max de Claude, Claude Code (app de escritorio o terminal), Windows 10/11 · macOS en beta'],
       ['Coste por vídeo', 'Ninguno: usa el plan de Claude del usuario; la skill no llama a la API de pago'],
     ],
-    tPrecio: 'Precio', hPrecio: 'Un pago. Tantos vídeos como permita tu plan.',
-    pPrecio: 'Estamos cerrando la primera versión pública. Reserva tu plaza y te avisamos con el precio de lanzamiento garantizado.',
+    tPrecio: 'Precio', hPrecio: 'Un solo pago. Sin cuotas por vídeo.',
+    pPrecio: 'Reserva tu plaza y te avisamos en cuanto salga, con el precio de lanzamiento garantizado.',
+    tNecesitas: 'Qué necesitas', necesitas: ['Un ordenador con Windows o Mac', 'Tu plan de Claude (desde 20 $ al mes)', 'Nada más: la guía te lleva paso a paso'],
     planes: [
-      { nombre: 'Individual', precio: '29 €', sufijo: 'pago único', destacado: true, lista: ['La skill completa y sus actualizaciones', '5 estilos, mapas y gráficos con datos', 'Voz HD gratis o tu propia voz', 'Guía de instalación paso a paso'], cta: 'Reservar por Instagram', href: 'https://ig.me/m/contratitular_es', gc: 'reservar-instagram-es' },
-      { nombre: 'Centros y empresas', precio: 'A medida', sufijo: '', destacado: false, lista: ['Varias plazas para tu equipo o claustro', 'Estilo adaptado a tus colores', 'Ideas de uso para tu sector', 'Hablamos antes de comprar'], cta: 'Escríbenos', href: 'https://ig.me/m/contratitular_es', gc: 'contacto-centros-es' },
+      { nombre: 'Individual', precio: '29 €', sufijo: 'pago único', destacado: true, lista: ['Todos los vídeos que permita tu plan', 'Todos los estilos y las mejoras futuras', 'Voz natural incluida', 'Guía de instalación paso a paso'], cta: 'Reservar por Instagram', href: 'https://ig.me/m/contratitular_es', gc: 'reservar-instagram-es' },
+      { nombre: 'Centros y empresas', precio: 'A medida', sufijo: '', destacado: false, lista: ['Para todo tu equipo o claustro', 'Con los colores de tu marca o centro', 'Te contamos cómo usarlo en tu sector'], cta: 'Escríbenos', href: 'https://ig.me/m/contratitular_es', gc: 'contacto-centros-es' },
     ],
-    precioLetra: 'El plan de Claude no está incluido (desde 20 $/mes). No garantizamos visualizaciones ni ingresos.',
+    precioLetra: 'Pago único. El plan de Claude va aparte. No garantizamos visualizaciones.',
     tFaq: 'Preguntas frecuentes',
     faq: [
-      ['¿Sirve para explicar mi proyecto, mi clase o mi empresa?', 'Sí. En vez de buscar una curiosidad, le das tu material (un texto, tus apuntes, un documento o tus datos) y lo convierte en una historia con gancho, pregunta y desenlace. Las cifras en pantalla son las tuyas.'],
-      ['¿Usa la API de Claude?', 'No. Se ejecuta dentro de Claude Code con tu suscripción (Pro o Max). Cada vídeo consume parte del límite de uso de tu plan, no una factura aparte.'],
-      ['¿Cuánto tarda un vídeo?', 'Entre 15 y 30 minutos desde la petición, casi todo investigación y dibujo. El render en sí son 2-3 minutos en un portátil normal.'],
-      ['¿Cuántos vídeos puedo hacer?', 'Con el plan Pro, normalmente 1-2 al día. Con Max, bastantes más.'],
-      ['¿Los datos son fiables?', 'Cada cifra se contrasta en al menos dos fuentes, lo incierto se marca como hipótesis y las fuentes van en el texto del post. Aun así, revisa cada vídeo antes de publicarlo.'],
-      ['¿En qué idioma narra?', 'De momento, en español.'],
-      ['¿Necesito saber programar?', 'No. El instalador se encarga de las dependencias y luego se pide todo en lenguaje normal.'],
-      ['¿Se publica solo?', 'No. La skill entrega los archivos; tú decides dónde y cuándo publicarlos.'],
+      ['¿Sirve para explicar mi proyecto, mi clase o mi empresa?', 'Sí. Le das tu información y la convierte en una historia corta y clara.'],
+      ['¿Tengo que pagar algo por cada vídeo?', 'No. Pagas la skill una vez y usas tu plan de Claude, que seguramente ya tienes.'],
+      ['¿Necesito saber de vídeo o de programación?', 'No. Todo se pide con tus palabras, y la instalación tiene una guía paso a paso.'],
+      ['¿Cuánto tarda?', 'Entre 15 y 30 minutos por vídeo, sin que tengas que hacer nada.'],
+      ['¿La información es fiable?', 'Cada dato se comprueba en varias fuentes y te las da citadas. Aun así, échale un vistazo antes de publicar.'],
+      ['¿En qué idioma habla?', 'En español.'],
     ],
     finalH: 'Tu próxima idea merece algo mejor que otra diapositiva.', finalP: 'Reserva tu plaza al precio de lanzamiento.', finalCta: 'Reservar plaza · 29 €',
     pie: 'Esta web no usa cookies ni guarda datos personales.',
@@ -166,14 +161,14 @@ const T = {
     title: 'Contratitular · Explain any idea in a vertical video, with Claude',
     desc: 'For projects, lessons, companies, public bodies and creators. Contratitular researches, builds the story, illustrates every scene, adds the voice-over and delivers the finished vertical video. Inside Claude, on your computer, with no per-video cost.',
     nav: [['#usos', 'Use cases'], ['#como', 'How it works'], ['#ejemplos', 'Examples'], ['#precio', 'Pricing'], ['#faq', 'FAQ']], navCta: 'Reserve a seat',
-    pill: ['New · v2.4', 'Stories with a twist, HD voice and maps with real data'],
+    pill: ['New', 'Stories that hook, with a natural voice'],
     h1: ['Explain any idea', 'in a 45-second video.'],
-    lead: 'A project, a lesson, a product or a fun fact. Contratitular researches, builds the story, illustrates and animates every scene, adds the voice-over and hands you the finished vertical video. Inside Claude, on your computer, with no per-video cost.',
+    lead: 'A project, a lesson, a product or a fun fact. Ask in your own words and get the finished video: with its story, animated drawings, voice-over and captions. No filming, no editing and no per-video fees.',
     cta1: 'Reserve a seat · €29', cta2: 'Watch an example',
-    confianza: ['No per-video fees', 'Facts with sources', 'Ready for Reels, TikTok, Shorts and LinkedIn'],
+    confianza: ['No per-video fees', 'No video skills needed', 'For social, web or class'],
     sonido: ['Turn sound on', 'Mute'],
     prompts: ['Explain my startup to investors in 45 seconds, using these numbers', 'A video on photosynthesis for 13-year-olds', 'Tell why our olive oil is cold-pressed', 'Sum up this safety protocol in one minute', 'Explain the new waste collection to residents', 'Make me three history videos for this week'],
-    promptBtn: 'Create video', promptEtiqueta: 'Your request, in plain language',
+    promptBtn: 'Create video', promptEtiqueta: 'Just ask, in your own words',
     redes: ['Instagram Reels', 'TikTok', 'YouTube Shorts', 'LinkedIn', 'Facebook', 'Your site or classroom'], redesTxt: 'One format, every screen',
     tUsos: 'Use cases', hUsos: 'If you have something to explain, you have a video.',
     pUsos: 'It was born for a fun-facts account that posts every day. Today it serves anyone who needs to explain something clearly, quickly and with a hook: you bring the topic or your material, the skill turns it into a story people watch to the end.',
@@ -199,46 +194,42 @@ const T = {
         ej: 'Make me three history videos for this week', aporta: 'Nothing, or a topic you like', recibe: 'Videos, covers and copy with sources' },
     ],
     tComo: 'How it works', hComo: 'From one sentence to a finished video.',
-    pComo: 'Claude follows the skill’s process and a local rendering engine handles everything that must not be improvised: timing, figures, maps and sound.',
+    pComo: 'No filming, no editing software and no technical knowledge.',
     pasos: [
-      { n: '01', h: 'You ask', p: 'In plain language. With a topic, or with your own material: a text, your notes, a document or your data.', lista: ['"Explain my project in 45 s"', 'notes.pdf · data.xlsx'] },
-      { n: '02', h: 'Claude produces it', p: 'It researches and cross-checks, builds the story, writes the script, draws every scene, adds voice, captions, music and sound, and checks every frame.', lista: ['Research · story · script', 'Scenes · voice · sound · render'] },
-      { n: '03', h: 'You get it', p: 'Everything in one folder, ready to review and post wherever you like. Nothing is published without you.', lista: ['video.mp4 · portada.png', 'texto.txt (with sources) · storyboard.md'] },
+      { n: '01', h: 'You ask', p: 'In your own words, as you would ask a person. The topic is enough, or give it your notes, a document or your data.' },
+      { n: '02', h: 'It makes itself', p: 'It finds the information, writes the story, draws and animates every scene and adds voice and captions.' },
+      { n: '03', h: 'You post it', p: 'You get the finished video, with its cover and the text to go with it. You decide where and when.' },
     ],
     tHistoria: 'Anatomy of a video', hHistoria: 'It doesn’t make fact videos. It tells stories.',
-    pHistoria: 'Every script is built in four phases. This is the real storyboard the skill produced for the Endurance video: 9 scenes, 53.8 seconds (narration in Spanish, translated here).',
-    fases: [['Stakes', 'Who, what’s at stake and why it matters now.'], ['Big question', 'The doubt that keeps the viewer watching.'], ['Twist', 'You believe A; a fact appears; you discover B.'], ['Re-hook', 'As one question closes, another opens.']],
-    faseNombre: { apuestas: 'stakes', pregunta: 'question', desarrollo: 'build-up', giro: 'twist', reenganche: 're-hook', resolucion: 'payoff' },
+    pHistoria: 'Every video has a hook, a question, a twist and an ending. This is how the Endurance one was built, scene by scene (narration in Spanish, translated here).',
+    fases: [['The hook', 'Who, what’s at stake and why it matters.'], ['The question', 'The doubt that keeps you watching.'], ['The twist', 'What you didn’t see coming.'], ['The ending', 'The answer, and sometimes a new question.']],
+    faseNombre: { apuestas: 'hook', pregunta: 'question', desarrollo: 'story', giro: 'twist', reenganche: 'new question', resolucion: 'ending' },
     escenas: ['28 men trapped in the Antarctic ice, with no ship and no way to call for help:', 'it was 1915, the ice had crushed their ship, the Endurance, and they watched it sink,', 'so the question was simple: how do you get out of there alive?', 'First, by camping on the ice for months, until three boats got them to a frozen, empty island: Elephant.', 'But nobody would look for them there, so six of them crossed more than 1,200 kilometres of ocean in a seven-metre boat,', 'and reached South Georgia… on the wrong side, and still had to cross its frozen mountains on foot.', 'And when they finally went back for the ones waiting on the island, nobody was missing: all 28 survived.', 'But the ship stayed at the bottom of the sea, and for over a century nobody knew where it was,', 'until in 2022 it was found 3,008 metres down, so intact you can still read its name.'],
     deslizar: 'Swipe through all 9 scenes',
     tEjemplos: 'Examples', hEjemplos: 'Unedited output from the skill.',
     pEjemplos: 'Each one came from a single request. The narration is in Spanish. Click to watch in full with sound.',
     verCompleto: 'Watch with sound', soloBucle: 'Excerpt',
-    tFunciones: 'What’s inside', hFunciones: 'Everything a video needs to work.',
+    tFunciones: 'Why it works', hFunciones: 'Videos people watch to the end.',
     funciones: [
-      ['historia', 'Stories with a method', 'Stakes, big question, twist and re-hook. If the script fails a ten-criterion self-review, it gets rewritten.', 'ancho'],
-      ['lupa', 'Facts with sources', 'Every figure, date and name is cross-checked against at least two sources. Anything doubtful is flagged or dropped.', ''],
-      ['voz', 'Natural HD voice', 'Continuous narration with an HD neural voice. Free on Azure’s free tier, or with your own voice.', ''],
-      ['sincro', 'Everything in sync', 'Every element appears and sounds exactly when the voice names it. Word-by-word captions.', ''],
-      ['mapa', 'Exact maps and charts', 'Bars, lines, counters and maps of the world, Europe or Spain, with World Bank and Our World in Data figures.', 'ancho'],
-      ['pincel', 'Five styles, your brand', 'Paper, neon, pop, chalkboard and clean, adaptable to your colours.', ''],
-      ['tablero', 'Storyboard included', 'Scene by scene: timing, narration, purpose, visual, camera, sound and text.', 'ancho'],
-      ['grafica', 'Learns from your metrics', 'Reads screenshots of your stats and writes your own style guide for the next videos.', 'ancho'],
+      ['historia', 'Stories that hook', 'Every video has a hook, a question, a twist and an ending. No lists of facts.', 'ancho'],
+      ['lupa', 'Reliable information', 'Every fact is checked against several sources, and you get them cited.', ''],
+      ['voz', 'Natural voice, free', 'Narration that sounds like a person. Or use your own voice.', ''],
+      ['mapa', 'Maps and charts', 'Your figures, turned into animated charts and maps.', ''],
+      ['pincel', 'Your style', 'Five visual styles, adaptable to your colours.', ''],
+      ['sincro', 'Perfect timing', 'Every drawing appears exactly when the voice names it, with its sound.', 'ancho'],
     ],
     tMedido: 'Measured, not assumed', hMedido: 'Every release incorporates what the data says.',
     pMedido: 'We publish daily with the skill itself and track the retention of every video on every network. What we learn ships in the next release as rules for scripts, sound and style.',
     medidoPie: 'Second-by-second retention · TikTok · first published video (November 2026)',
     medidoNota: '−31 points in the first second: the algorithm was showing it, but the hook took too long. Since v2.3 the opening line puts the key fact in its first few words.',
     ejeS: 's',
-    tCompara: 'Comparison', hCompara: 'Studio quality, zero cost per video.',
-    compCols: ['Contratitular', 'Agency or studio', 'AI video editor', 'Doing it yourself'],
+    tCompara: 'Comparison', hCompara: 'Studio quality, without the price.',
+    compCols: ['Contratitular', 'Agency', 'AI editor', 'Doing it yourself'],
     compFilas: [
       ['Cost per video', ['€0', 'Quote per piece', 'Credits or subscription', 'Your hours']],
-      ['From topic to video', ['15-30 min', 'Days or weeks', 'Hours of editing', 'Hours or days']],
-      ['Script with a story structure', [1, 1, 0, '·']],
-      ['Facts cross-checked with sources', [1, '·', 0, '·']],
-      ['Original illustration, no stock images', [1, 1, 0, 0]],
-      ['Maps and charts with exact data', [1, 1, 0, '·']],
+      ['Time', ['Minutes', 'Days or weeks', 'Hours', 'Hours or days']],
+      ['A story that hooks', [1, 1, 0, '·']],
+      ['Information with sources', [1, '·', 0, '·']],
     ],
     compNota: '',
     tFicha: 'Specs', hFicha: 'Technical specifications.',
@@ -254,23 +245,22 @@ const T = {
       ['Requirements', 'Claude Pro or Max plan, Claude Code (desktop app or terminal), Windows 10/11 · macOS in beta'],
       ['Cost per video', 'None: it runs on the user’s Claude plan; the skill does not call the paid API'],
     ],
-    tPrecio: 'Pricing', hPrecio: 'Pay once. Make as many videos as your plan allows.',
-    pPrecio: 'We are finalising the first public release. Reserve your seat and we will let you know, with the launch price guaranteed.',
+    tPrecio: 'Pricing', hPrecio: 'Pay once. No per-video fees.',
+    pPrecio: 'Reserve your seat and we will let you know as soon as it is out, with the launch price guaranteed.',
+    tNecesitas: 'What you need', necesitas: ['A Windows or Mac computer', 'Your Claude plan (from $20 a month)', 'Nothing else: the guide walks you through it'],
     planes: [
-      { nombre: 'Individual', precio: '€29', sufijo: 'one-time', destacado: true, lista: ['The full skill and its updates', '5 styles, maps and data charts', 'Free HD voice or your own voice', 'Step-by-step install guide'], cta: 'Reserve on Instagram', href: 'https://ig.me/m/contratitular_es', gc: 'reservar-instagram-en' },
-      { nombre: 'Schools & companies', precio: 'Custom', sufijo: '', destacado: false, lista: ['Several seats for your team or staff', 'Style matched to your colours', 'Use ideas for your sector', 'Talk to us before buying'], cta: 'Get in touch', href: 'https://ig.me/m/contratitular_es', gc: 'contacto-centros-en' },
+      { nombre: 'Individual', precio: '€29', sufijo: 'one-time', destacado: true, lista: ['As many videos as your plan allows', 'Every style and all future updates', 'Natural voice included', 'Step-by-step install guide'], cta: 'Reserve on Instagram', href: 'https://ig.me/m/contratitular_es', gc: 'reservar-instagram-en' },
+      { nombre: 'Schools & companies', precio: 'Custom', sufijo: '', destacado: false, lista: ['For your whole team or staff', 'In your brand or school colours', 'We show you how to use it in your sector'], cta: 'Get in touch', href: 'https://ig.me/m/contratitular_es', gc: 'contacto-centros-en' },
     ],
-    precioLetra: 'Claude plan not included (from $20/month). No views or revenue are guaranteed. Narration is currently in Spanish.',
+    precioLetra: 'One-time payment. Claude plan not included. Narration is in Spanish. No views guaranteed.',
     tFaq: 'Frequently asked questions',
     faq: [
-      ['Can I use it to explain my project, lesson or company?', 'Yes. Instead of looking for a fun fact, you give it your material (a text, your notes, a document or your data) and it turns it into a story with a hook, a question and a payoff. The figures on screen are yours.'],
-      ['Does it use the Claude API?', 'No. It runs inside Claude Code on your subscription (Pro or Max). Each video uses part of your plan’s usage limit, not a separate bill.'],
-      ['How long does a video take?', '15 to 30 minutes from the request, mostly research and drawing. Rendering itself takes 2-3 minutes on an ordinary laptop.'],
-      ['How many videos can I make?', 'On the Pro plan, usually 1-2 a day. On Max, considerably more.'],
-      ['Are the facts reliable?', 'Every figure is cross-checked against at least two sources, uncertain claims are flagged, and sources are listed in the post copy. Still, review each video before publishing.'],
-      ['What language is the narration in?', 'Spanish, for now.'],
-      ['Do I need to code?', 'No. The installer handles dependencies, and everything else is requested in plain language.'],
-      ['Does it publish automatically?', 'No. The skill delivers the files; you decide where and when to post them.'],
+      ['Can I use it to explain my project, lesson or company?', 'Yes. Give it your information and it turns it into a short, clear story.'],
+      ['Do I pay anything per video?', 'No. You pay for the skill once and use your Claude plan, which you probably already have.'],
+      ['Do I need video or coding skills?', 'No. You ask for everything in your own words, and installation comes with a step-by-step guide.'],
+      ['How long does it take?', '15 to 30 minutes per video, without you doing anything.'],
+      ['Is the information reliable?', 'Every fact is checked against several sources and you get them cited. Still, take a look before posting.'],
+      ['What language does it speak?', 'Spanish, for now.'],
     ],
     finalH: 'Your next idea deserves better than another slide.', finalP: 'Reserve your seat at the launch price.', finalCta: 'Reserve a seat · €29',
     pie: 'This site uses no cookies and stores no personal data.',
@@ -363,7 +353,6 @@ function pagina(t) {
         <h3>${esc(u.h)}</h3><p>${esc(u.p)}</p>
         <ul class="lista-ok">${u.puntos.map((x) => `<li>${ic('ok')}${esc(x)}</li>`).join('')}</ul>
         <div class="ejemplo-peticion"><span class="mono">›</span> ${esc(u.ej)}</div>
-        <dl class="io"><div><dt>${esc(t.aportas)}</dt><dd>${esc(u.aporta)}</dd></div><div><dt>${esc(t.recibes)}</dt><dd>${esc(u.recibe)}</dd></div></dl>
       </div>
       <figure class="panel-visual"><img src="${u.img}" alt="" loading="lazy" width="540" height="960"><figcaption>${esc(t.escenaReal)}</figcaption></figure>
     </div>`).join('\n    ')}
@@ -373,7 +362,7 @@ function pagina(t) {
 <section id="como" class="seccion gris">
   <div class="caja">
     <header class="cabecera"><p class="ceja">${esc(t.tComo)}</p><h2>${esc(t.hComo)}</h2><p class="sub">${esc(t.pComo)}</p></header>
-    <ol class="pasos">${t.pasos.map((p) => `<li class="paso aparece"><span class="paso-n">${p.n}</span><h3>${esc(p.h)}</h3><p>${esc(p.p)}</p><div class="paso-codigo">${p.lista.map((x) => `<code>${esc(x)}</code>`).join('')}</div></li>`).join('')}</ol>
+    <ol class="pasos">${t.pasos.map((p) => `<li class="paso aparece"><span class="paso-n">${p.n}</span><h3>${esc(p.h)}</h3><p>${esc(p.p)}</p></li>`).join('')}</ol>
   </div>
 </section>
 
@@ -393,7 +382,7 @@ function pagina(t) {
     <header class="cabecera"><p class="ceja">${esc(t.tEjemplos)}</p><h2>${esc(t.hEjemplos)}</h2><p class="sub">${esc(t.pEjemplos)}</p></header>
     <div class="clips">${CLIPS.map((c) => { const x = c[L]; return `<figure class="clip aparece"${c.completo ? ` data-completo="/media/clips/${c.id}.mp4"` : ''}>
       <div class="clip-video"><video src="/media/clips/${c.id}-bucle.mp4" poster="/media/clips/${c.id}.jpg" muted loop playsinline preload="none"></video>${c.completo ? `<button class="clip-play" type="button">${ic('play')}<span>${esc(t.verCompleto)}</span></button>` : `<span class="clip-marca">${esc(t.soloBucle)}</span>`}</div>
-      <figcaption><span class="mono">${esc(x.cat)} · ${esc(c.estilo[L])} · ${esc(typeof c.dur === 'string' ? c.dur : c.dur[L])}</span><strong>${esc(x.tema)}</strong><span class="rasgos">${x.rasgos.map((r) => `<em>${esc(r)}</em>`).join('')}</span></figcaption></figure>`; }).join('')}</div>
+      <figcaption><span class="mono">${esc(x.cat)}</span><strong>${esc(x.tema)}</strong></figcaption></figure>`; }).join('')}</div>
   </div>
 </section>
 
@@ -401,13 +390,6 @@ function pagina(t) {
   <div class="caja">
     <header class="cabecera"><p class="ceja">${esc(t.tFunciones)}</p><h2>${esc(t.hFunciones)}</h2></header>
     <div class="bento">${t.funciones.map(([i, h, p, a]) => `<article class="celda aparece${a ? ' ' + a : ''}"><span class="celda-ico">${ic(i)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join('')}</div>
-  </div>
-</section>
-
-<section class="seccion oscura">
-  <div class="caja dos">
-    <div><p class="ceja">${esc(t.tMedido)}</p><h2>${esc(t.hMedido)}</h2><p class="sub">${esc(t.pMedido)}</p><p class="nota-dato">${esc(t.medidoNota)}</p></div>
-    <figure class="panel-grafica">${grafica(t)}<figcaption>${esc(t.medidoPie)}</figcaption></figure>
   </div>
 </section>
 
@@ -421,13 +403,6 @@ function pagina(t) {
   </div>
 </section>
 
-<section id="ficha" class="seccion gris">
-  <div class="caja">
-    <header class="cabecera"><p class="ceja">${esc(t.tFicha)}</p><h2>${esc(t.hFicha)}</h2></header>
-    <dl class="ficha">${t.ficha.map(([a, b]) => `<div><dt>${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join('')}</dl>
-  </div>
-</section>
-
 <section id="precio" class="seccion">
   <div class="caja">
     <header class="cabecera centro"><p class="ceja">${esc(t.tPrecio)}</p><h2>${esc(t.hPrecio)}</h2><p class="sub">${esc(t.pPrecio)}</p></header>
@@ -436,6 +411,7 @@ function pagina(t) {
       <ul class="lista-ok">${p.lista.map((x) => `<li>${ic('ok')}${esc(x)}</li>`).join('')}</ul>
       <a class="btn ${p.destacado ? 'btn-primario' : 'btn-borde'}" href="${p.href}" target="_blank" rel="noopener" data-goatcounter-click="${p.gc}">${esc(p.cta)}</a>
     </article>`).join('')}</div>
+    <div class="necesitas"><span class="mono">${esc(t.tNecesitas)}</span>${t.necesitas.map((x) => `<span>${ic('ok')}${esc(x)}</span>`).join('')}</div>
     <p class="letra centro">${esc(t.precioLetra)}</p>
   </div>
 </section>

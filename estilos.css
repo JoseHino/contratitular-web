@@ -313,3 +313,9 @@ h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; font-weight: 700; le
   .fijo .btn { width: 100%; }
   .pie { padding-bottom: 90px; }
 }
+
+/* qué necesitas (bajo los planes) */
+.necesitas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 26px; margin: 34px auto 0; max-width: 900px; font-size: 15px; color: var(--tinta-2); }
+.necesitas .mono { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--azul); }
+.necesitas span { display: inline-flex; align-items: center; gap: 7px; }
+.necesitas svg.ic { color: var(--verde); }
