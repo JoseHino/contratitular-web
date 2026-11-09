@@ -18,10 +18,20 @@ const T = {
     lang: 'es', ruta: '', otro: { href: '/en/', txt: 'EN' },
     title: 'Contratitular · Skill de Claude Code para vídeos verticales explicativos',
     desc: 'Una skill para Claude Code que investiga un tema, lo convierte en historia, ilustra y anima cada escena, pone voz y entrega un MP4 vertical. En tu ordenador y con tu plan de Claude.',
-    nav: ['Cómo funciona', 'Ejemplos', 'Ficha técnica', 'Preguntas'], navCta: 'Reservar',
+    nav: ['Cómo funciona', 'Para quién', 'Ejemplos', 'Ficha técnica', 'Preguntas'], navCta: 'Reservar',
+    tPara: 'Para quién es', hPara: 'Si tienes algo que explicar, tienes un vídeo.',
+    pPara: 'Nació para una cuenta de curiosidades, pero sirve para cualquiera que necesite contar algo claro, rápido y con gancho. Tú le das el tema o tu material; la skill lo convierte en historia.',
+    para: [
+      ['Proyectos e ideas', 'Emprendedores, startups, TFG, candidaturas a ayudas: tu idea explicada en 45 segundos para inversores, jurados o clientes.', 'Explica mi app de reciclaje para inversores, con estos datos'],
+      ['Educación', 'Profesores, academias y divulgadores: una lección en un vídeo corto que los alumnos sí terminan de ver, con mapas, gráficos y fuentes.', 'Un vídeo de la fotosíntesis para 2.º de ESO'],
+      ['Negocios y marcas', 'Cuenta qué te hace distinto, cómo funciona tu servicio o la historia de tu producto, con tus colores y tu estilo, sin agencia ni rodaje.', 'Cuenta por qué nuestro aceite es de primera presión en frío'],
+      ['Creadores de contenido', 'Curiosidades, historia, ciencia o efemérides para publicar cada día en Instagram, TikTok, YouTube y Facebook sin quemarte.', 'Hazme tres vídeos de historia para esta semana'],
+      ['Instituciones y ONG', 'Ayuntamientos, asociaciones y fundaciones: explica un servicio, una norma o una campaña a la gente, con datos oficiales y sin tecnicismos.', 'Explica a los vecinos la nueva recogida de residuos'],
+      ['Formación en empresas', 'Procedimientos, seguridad, bienvenida a nuevos empleados o resultados del trimestre: píldoras de vídeo que se entienden a la primera.', 'Resume este procedimiento de seguridad en un vídeo de un minuto'],
+    ],
     eyebrow: 'Skill para Claude Code · v2.4',
-    h1: 'Vídeos verticales explicativos, producidos de principio a fin dentro de Claude Code.',
-    lead: 'Contratitular investiga un tema con fuentes, lo estructura como una historia, ilustra y anima cada escena, la narra y renderiza un MP4 de 1080×1920 listo para Reels, TikTok y Shorts. Funciona en tu ordenador, con tu propio plan de Claude.',
+    h1: 'Cualquier idea, contada en un vídeo vertical que se ve hasta el final.',
+    lead: 'Una curiosidad, tu proyecto, una lección o tu negocio. Contratitular investiga el tema con fuentes (o parte de tu información), lo estructura como una historia, ilustra y anima cada escena, la narra y renderiza un MP4 de 1080×1920 listo para Reels, TikTok y Shorts. Funciona en tu ordenador, con tu propio plan de Claude.',
     cta1: 'Reservar plaza · 29 €', cta2: 'Ver ejemplos',
     nota: 'Pago único. Sin cuotas por vídeo ni créditos de generación.',
     sonido: ['Activar sonido', 'Silenciar'],
@@ -76,10 +86,20 @@ const T = {
     lang: 'en', ruta: '/en', otro: { href: '/', txt: 'ES' },
     title: 'Contratitular · Claude Code skill for vertical explainer videos',
     desc: 'A Claude Code skill that researches a topic, turns it into a story, illustrates and animates every scene, narrates it and delivers a vertical MP4. On your machine, with your own Claude plan.',
-    nav: ['How it works', 'Examples', 'Specs', 'FAQ'], navCta: 'Reserve',
+    nav: ['How it works', "Who it's for", 'Examples', 'Specs', 'FAQ'], navCta: 'Reserve',
+    tPara: "Who it's for", hPara: 'If you have something to explain, you have a video.',
+    pPara: 'It was born for a fun-facts account, but it works for anyone who needs to explain something clearly, quickly and with a hook. You give it the topic or your material; the skill turns it into a story.',
+    para: [
+      ['Projects and ideas', 'Founders, startups, theses, grant applications: your idea explained in 45 seconds for investors, juries or customers.', 'Explain my recycling app to investors, using these numbers'],
+      ['Education', 'Teachers, academies and science communicators: a lesson in a short video students actually finish, with maps, charts and sources.', 'A video on photosynthesis for 13-year-olds'],
+      ['Businesses and brands', 'Show what makes you different, how your service works or the story behind your product, in your colours and style, with no agency and no shoot.', 'Tell why our olive oil is cold-pressed'],
+      ['Content creators', 'Fun facts, history, science or on-this-day stories to post every day on Instagram, TikTok, YouTube and Facebook without burning out.', 'Make me three history videos for this week'],
+      ['Public bodies and NGOs', 'Councils, associations and foundations: explain a service, a rule or a campaign to the public, with official data and no jargon.', 'Explain the new waste collection to residents'],
+      ['Corporate training', 'Procedures, safety, onboarding or quarterly results: bite-sized videos people understand the first time.', 'Sum up this safety procedure in a one-minute video'],
+    ],
     eyebrow: 'Claude Code skill · v2.4',
-    h1: 'Vertical explainer videos, produced end to end inside Claude Code.',
-    lead: 'Contratitular researches a topic with sources, structures it as a story, illustrates and animates every scene, narrates it and renders a 1080×1920 MP4 ready for Reels, TikTok and Shorts. It runs on your machine, with your own Claude plan.',
+    h1: 'Any idea, told in a vertical video people watch to the end.',
+    lead: 'A fun fact, your project, a lesson or your business. Contratitular researches the topic with sources (or starts from your own material), structures it as a story, illustrates and animates every scene, narrates it and renders a 1080×1920 MP4 ready for Reels, TikTok and Shorts. It runs on your machine, with your own Claude plan.',
     cta1: 'Reserve a seat · €29', cta2: 'See examples',
     nota: 'One-time payment. No per-video fees or generation credits.',
     sonido: ['Turn sound on', 'Mute'],
@@ -175,7 +195,7 @@ function pagina(t) {
   <div class="caja barra-in">
     <a class="marca" href="${t.ruta || '/'}"><span class="logo" aria-hidden="true"><i></i><i></i><i></i></span>Contratitular</a>
     <nav aria-label="${L === 'es' ? 'Secciones' : 'Sections'}">
-      <a href="#proceso">${t.nav[0]}</a><a href="#ejemplos">${t.nav[1]}</a><a href="#ficha">${t.nav[2]}</a><a href="#faq">${t.nav[3]}</a>
+      <a href="#proceso">${t.nav[0]}</a><a href="#para-quien">${t.nav[1]}</a><a href="#ejemplos">${t.nav[2]}</a><a href="#ficha">${t.nav[3]}</a><a href="#faq">${t.nav[4]}</a>
       <a class="idioma" href="${t.otro.href}" hreflang="${L === 'es' ? 'en' : 'es'}">${t.otro.txt}</a>
       <a class="btn btn-claro btn-mini" href="#precio">${t.navCta}</a>
     </nav>
@@ -207,7 +227,14 @@ function pagina(t) {
   </div>
 </section>
 
-<section id="ejemplos" class="seccion gris">
+<section id="para-quien" class="seccion gris">
+  <div class="caja">
+    <p class="ceja">${esc(t.tPara)}</p><h2>${esc(t.hPara)}</h2><p class="sub">${esc(t.pPara)}</p>
+    <div class="usos">${t.para.map(([h, p, ej]) => `<article><h3>${esc(h)}</h3><p>${esc(p)}</p><code>› ${esc(ej)}</code></article>`).join('')}</div>
+  </div>
+</section>
+
+<section id="ejemplos" class="seccion">
   <div class="caja">
     <p class="ceja">${esc(t.tEjemplos)}</p><h2>${esc(t.hEjemplos)}</h2><p class="sub">${esc(t.pEjemplos)}</p>
     <div class="clips">${CLIPS.map((c) => { const x = c[L]; return `<figure class="clip"${c.completo ? ` data-completo="/media/clips/${c.id}.mp4"` : ''}>
